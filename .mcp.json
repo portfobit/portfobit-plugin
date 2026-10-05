@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "portfobit": {
+      "type": "http",
+      "url": "https://mcp.portfobit.com/v1/mcp"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+---
+name: cex-activity-history
+description: Trace stored CEX orders, trades, ledger entries, and deposits or withdrawals for an account and time range; explain collection gaps. Start a bounded history import only when the user explicitly requests that account, activity type, and interval, after explaining scope, plan, and work-unit cost. Do not import on an ordinary read or empty result.
+---
+
+# CEX activity history
+
+## Read and explain facts
+
+Resolve the account, relevant `activity_type`, symbol if applicable, and UTC `[from,to)` interval. A portfolio history question needs its actual account set from `get_portfolio`; do not pass a portfolio ID as an account ID. Read the stored facts with `list_order_history` (`order:read`), `list_trades` (`trade:read`), `list_ledger_entries` (`ledger:read`), or `list_transactions` (`funding:read`). Handle cursors and incomplete pages. Current open orders use `list_open_orders` / `get_open_order` and are distinct from terminal order history. Orders, fills, ledger entries, and deposit/withdrawal transactions may describe the same activity; do not add them together as independent cash flows. Cite event time, account, venue, exchange identifier, and amounts where relevant.
+
+An empty local result means no matching stored fact was returned. `meta.activity_history_collection` describes the recent seven-day collection baseline, not exact interval coverage or root cause. Missing data may follow a Plus subscription lapse, a newly connected account, exchange capability or retention limits, missing symbol candidates, unusable credentials, rate limiting, pagination, or a worker failure. The interface does not expose full coverage or worker cursors. Say which evidence exists and which cause remains a possibility. A returned `status=complete` or `incomplete` does not prove an older requested range is complete.
+
+On Free or after Plus trial/reward expiry, the four activity types cannot be read or imported and automatic collection stops; stored facts are retained. Active Plus, including active trial, enables eligible account collection. The current defaults are account discovery every 12 hours, each of the four activity types triggered every 12 hours, and at most a rolling seven-day automatic lookback. First discovery can trigger collection. Those are configurable scheduling defaults, not delivery or completeness guarantees. Restoring Plus resumes eligibility at the next discovery; it does not promise a full historical backfill. Pro is not currently purchasable.
+
+## Explicit, bounded import
+
+Never invoke `start_activity_history_import` because a read is empty, a subscription resumed, or a collection status changed. Enter this branch only after the user asks to import a specific account, one of `order_history`, `trades`, `ledger`, or `transactions`, and an unambiguous UTC `[from,to)` interval. Resolve timezone and missing bounds before a call. Import requires active Plus, `activity:write`, and the corresponding type read scope. Explain a scope or plan error; do not silently broaden the grant.
+
+Before calling, explain that this is an asynchronous CEX fetch that may consume exchange quota and Portfobit work-units. Current default maximum is 90 days per request, with possible stricter venue limits. The accepted request consumes `ceil(requested hours)` work-units against a default 168-unit per UTC day budget per user and credential, even if the task eventually fails; remaining balance is not exposed to the agent. Show the estimate for the exact interval. Never silently split an overlong request, change dates, or use another account/credential to evade a budget. `429 activity_history_import_rate_limited` means import budget or rate limit, not absent exchange history.
+
+Use one stable idempotency key for the exact request. Call once; do not automatically replay after a timeout or `409`/`422`. If accepted, report the `ahi_*` import ID and poll `get_activity_history_import` only with the task's read scope. Distinguish queued/running, complete, incomplete, and failed; partial facts may already have been stored. Re-read the same history interval after completion or partial completion, noting pagination and any remaining gap. An unknown outcome needs user-visible uncertainty and later status verification with the known ID, not a new import. Never treat import as account SyncRun or NAV backfill, and never derive spot P&L or returns from activity facts.

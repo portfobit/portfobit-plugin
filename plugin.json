@@ -1,0 +1,27 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "portfobit",
+  "version": "0.1.0",
+  "description": "Explore crypto portfolios, current risk, open orders, CEX activity, daily NAV, exchange quotes and candles; guide explicit protected CEX actions and support reports through Portfobit MCP.",
+  "author": {
+    "name": "Portfobit",
+    "url": "https://portfobit.com"
+  },
+  "homepage": "https://portfobit.com",
+  "repository": "https://github.com/portfobit/portfobit-plugin",
+  "license": "MIT",
+  "keywords": ["crypto", "portfolio", "mcp", "codex", "claude-code"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Portfobit",
+        "shortDescription": "Crypto portfolio insights",
+        "longDescription": "Explore current crypto assets, portfolio valuation and risk, live open orders, CEX order/trade/ledger/funding history, daily NAV snapshots, and connected-exchange quotes or candles. Diagnose account sync, guide explicit history imports and protected CEX actions, and report product issues through Portfobit MCP. Server scopes, plan rules, and user confirmation govern all writes.",
+        "developerName": "Portfobit",
+        "category": "Productivity",
+        "capabilities": ["Interactive"],
+        "defaultPrompt": "Show my current global portfolio value, source freshness, and server-reported risk."
+      }
+    }
+  }
+}

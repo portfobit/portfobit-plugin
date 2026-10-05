@@ -1,0 +1,11 @@
+{
+  "name": "portfobit",
+  "version": "0.1.0",
+  "description": "Explore crypto portfolios, current risk, open orders, CEX activity, daily NAV, exchange quotes and candles; guide explicit protected CEX actions and support reports through Portfobit MCP.",
+  "author": {
+    "name": "Portfobit"
+  },
+  "homepage": "https://portfobit.com",
+  "repository": "https://github.com/portfobit/portfobit-plugin",
+  "license": "MIT"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "portfobit",
+  "description": "Portfobit plugins for crypto portfolio workflows.",
+  "owner": {
+    "name": "Portfobit"
+  },
+  "plugins": [
+    {
+      "name": "portfobit",
+      "source": "./",
+      "description": "Crypto portfolio and CEX workflows through Portfobit MCP.",
+      "version": "0.1.0"
+    }
+  ]
+}

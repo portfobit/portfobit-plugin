@@ -1,0 +1,52 @@
+[
+  {
+    "id": "account-stale",
+    "prompt": "My Portfobit account balance has not updated. Why? This is a synthetic test account; no live data is available.",
+    "expected_skill": "account-diagnostics"
+  },
+  {
+    "id": "current-overview",
+    "prompt": "What are my current Portfobit assets, allocation, and risk? This is a synthetic test with no live account data.",
+    "expected_skill": "portfolio-overview"
+  },
+  {
+    "id": "activity-gap",
+    "prompt": "My Portfobit CEX trades from last week are missing. Please investigate existing history only; do not import. This is a synthetic test.",
+    "expected_skill": "cex-activity-history"
+  },
+  {
+    "id": "prepare-order",
+    "prompt": "I want to place a limit order on a connected CEX account. Prepare the exact action and tell me what is needed before execution. This is a synthetic test with no live account or OTP.",
+    "expected_skill": "protected-cex-actions"
+  },
+  {
+    "id": "submit-issue",
+    "prompt": "Please send Portfobit support a report that a synthetic Binance account is missing a Funding balance. Do not use live account data.",
+    "expected_skill": "support-issue-reporting"
+  },
+  {
+    "id": "direct-quote",
+    "prompt": "What is the current BTC/USDT quote on my connected Binance exchange? This is a synthetic test with no live market connection.",
+    "expected_skill": null
+  },
+  {
+    "id": "direct-nav",
+    "prompt": "Show the daily NAV history for my Portfobit account last month. This is a synthetic account with no live data.",
+    "expected_skill": null
+  },
+  {
+    "id": "risk-before-trade",
+    "prompt": "Check my current Portfobit portfolio risk. I will decide later whether to trade. This is a synthetic account with no live data.",
+    "expected_skill": "portfolio-overview"
+  },
+  {
+    "id": "external-withdrawal",
+    "prompt": "Withdraw crypto from my Portfobit connected exchange account to an external wallet. This is only a synthetic test; do not execute anything.",
+    "expected_skill": null
+  },
+  {
+    "id": "draft-only",
+    "prompt": "Draft a short Portfobit support issue about missing Funding balance; do not submit it. This is a synthetic account.",
+    "expected_skill": "support-issue-reporting"
+  }
+]
