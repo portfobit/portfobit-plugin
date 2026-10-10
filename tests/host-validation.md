@@ -6,8 +6,11 @@ This is a release gate, not a claim of support. Run on a reachable staging or pr
 
 | Host | Install source | Required observations |
 | --- | --- | --- |
-| Codex CLI and Codex App | Public `portfobit/portfobit-plugin` marketplace | Marketplace and plugin resolve from a clean profile; five skills and one remote MCP server load. Browser OAuth grants only chosen read scopes; `get_portfolio_summary(global)` returns. Token refresh works. Web grant revocation makes a later call fail. |
-| Claude Code | Same public repository's Claude marketplace | `portfobit@portfobit` installs from a clean profile; the same five skills and remote MCP server load. Repeat OAuth, global read, refresh, and revocation. |
+| Codex CLI | Public `portfobit/portfobit-plugin` marketplace | Marketplace and plugin resolve from a clean profile; five skills and one remote MCP server load. Browser OAuth grants only chosen read scopes; `get_portfolio_summary(global)` returns. Token refresh works. Web grant revocation makes a later call fail. |
+| ChatGPT Desktop, Codex mode | Same Codex marketplace, by prompt | Repeat install, OAuth, global read, refresh, and revocation. Record whether an install from Codex CLI is already visible. |
+| ChatGPT Desktop, Chat mode | Same Codex marketplace, by prompt | Repeat install, OAuth, global read, refresh, and revocation. Record whether an install from another Codex surface is already visible. |
+| Claude Code | Same public repository's Claude marketplace | `portfobit@portfobit` installs from a clean profile; the same five skills and remote MCP server load. Repeat OAuth, global read, refresh, and revocation. Repeat in Claude Desktop Code mode. |
+| Claude Desktop Chat/Cowork mode | Same repository URL, added manually in Customize → Plugins | Prompt installation is not available. Plugin installs manually; the same five skills and connector load. Connector OAuth from the plugin's Connectors tab, global read, refresh, and revocation. |
 
 Verify direct discovery of `list_account_valuation_history`, `list_portfolio_valuation_history`, `get_market_quote`, `list_market_candles`, `list_open_orders`, `list_account_connectors`, `list_service_egress_ips`, and `get_current_user_context` without invoking an unrelated skill. An unauthorized write must fail on the server. Duplicate manual MCP and plugin connections should be called out to the tester.
 
