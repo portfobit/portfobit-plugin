@@ -23,8 +23,6 @@ Sign in to Portfobit in the browser and choose only the scopes needed for the ta
 
 Then ask: **"Use portfobit to list the account connectors I can connect."**
 
-OAuth sign-in works in the Cursor editor and CLI on your computer. Cursor Cloud Agents are not supported yet.
-
 For manual Remote MCP setup without the plugin, see the [Portfobit docs](https://docs.portfobit.com/guides/mcp/cursor).
 
 ## Safety
