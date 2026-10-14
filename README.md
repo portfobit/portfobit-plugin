@@ -9,6 +9,7 @@ An Agent Plugins 1.0 package for Portfobit's existing Remote MCP server, with Co
 | ChatGPT Desktop (Chat or Codex mode) and Codex CLI | Paste the Codex prompt below. Install once to use it in all of them. [Guide](docs/install/codex.md) |
 | Claude Code and Claude Desktop Code mode | Paste the Claude Code prompt below. [Guide](docs/install/claude-code.md) |
 | Claude Desktop Chat/Cowork mode | Install manually from **Customize → Plugins**: add this repository as a marketplace, install Portfobit, then connect `portfobit` from the plugin's **Connectors** tab. [Guide](docs/install/claude-desktop.md) |
+| Cursor editor and Cursor CLI | Paste the Cursor prompt below into the Cursor Agent chat, or add this repository from **Customize → From GitHub Repository**. [Guide](docs/install/cursor.md) |
 
 ChatGPT or Codex:
 
@@ -20,6 +21,12 @@ Claude Code or Claude Desktop Code mode:
 
 ```text
 Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Claude Code plugin marketplace, then guide me through Portfobit browser OAuth.
+```
+
+Cursor:
+
+```text
+Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Cursor plugin marketplace, then guide me through Portfobit browser OAuth.
 ```
 
 Sign in to Portfobit in the browser when asked, and grant only the scopes you need. Manual Remote MCP setup without the plugin is in the [Portfobit docs](https://docs.portfobit.com/guides/mcp-server-setup).
@@ -48,7 +55,8 @@ Interactive MCP access uses browser OAuth. Grant only the scopes needed for the 
 - `skills/`: one shared set of English workflow instructions.
 - `.agents/plugins/marketplace.json`: Codex marketplace entry.
 - `.claude-plugin/` and `.mcp.json`: Claude Code marketplace, manifest, and MCP adapter.
-- `docs/install/`: installation guides for [ChatGPT and Codex](docs/install/codex.md), [Claude Code](docs/install/claude-code.md), and [Claude Desktop](docs/install/claude-desktop.md), including uninstall and local development steps.
+- `.cursor-plugin/`: Cursor marketplace and manifest; Cursor reads `.cursor-plugin/marketplace.json` to find the plugin when installing from a GitHub repository.
+- `docs/install/`: installation guides for [ChatGPT and Codex](docs/install/codex.md), [Claude Code](docs/install/claude-code.md), [Claude Desktop](docs/install/claude-desktop.md), and [Cursor](docs/install/cursor.md), including uninstall and local development steps.
 - `tests/`: self-contained package checks and host validation scenarios.
 
 The source repository is [`portfobit/portfobit-plugin`](https://github.com/portfobit/portfobit-plugin). Installation steps are in the guides above. Manual Remote MCP setup remains available in the [Portfobit docs](https://docs.portfobit.com).
