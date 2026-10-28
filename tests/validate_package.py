@@ -46,6 +46,10 @@ def main() -> None:
     check(re.fullmatch(r"\d+\.\d+\.\d+", portable["version"]) is not None, "version is not semver")
     check(portable["description"] == claude["description"] == cursor["description"], "host descriptions differ")
     check(len(portable["extensions"]["com.openai"]["interface"]["shortDescription"]) <= 30, "listing subtitle too long")
+    hermes_servers = portable["extensions"]["com.nousresearch.hermes"]["servers"]
+    check(set(hermes_servers) == set(portable_mcp["mcpServers"]), "Hermes declaration references an absent server")
+    check(all(server.get("trust") == "untrusted" for server in hermes_servers.values()), "Hermes writes must keep the host approval gate")
+    check(not (ROOT / "plugin.yaml").exists(), "portable package must not be shadowed by a native Python plugin")
     check(portable_mcp["mcpServers"] == {"portfobit": {"type": "streamable-http", "url": MCP_URL}}, "portable MCP mismatch")
     check(claude_mcp["mcpServers"] == {"portfobit": {"type": "http", "url": MCP_URL}}, "Claude MCP mismatch")
     check(codex_market["plugins"][0]["name"] == claude_market["plugins"][0]["name"] == cursor_market["plugins"][0]["name"] == "portfobit", "marketplace names differ")

@@ -2,12 +2,12 @@
 
 Use this guide for Claude Code. If you use Claude Desktop, see [Claude Desktop](claude-desktop.md), which covers both Code mode and Chat/Cowork mode.
 
-## Install with a prompt
+## Recommended: Install the Portfobit plugin
 
 Paste this into Claude Code, or into a session in Claude Desktop Code mode:
 
 ```text
-Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Claude Code plugin marketplace, then guide me through Portfobit browser OAuth.
+Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Claude Code plugin marketplace, then guide me through Portfobit browser OAuth. Then help me connect my first exchange account using https://docs.portfobit.com/guides/connect-your-first-account.
 ```
 
 The expected plugin identity is `portfobit@portfobit`, with five skills and one Portfobit HTTP MCP connection.

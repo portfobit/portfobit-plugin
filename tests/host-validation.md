@@ -6,6 +6,9 @@ This is a release gate, not a claim of support. Run on a reachable staging or pr
 
 | Host | Install source | Required observations |
 | --- | --- | --- |
+| Grok Bot | Full public repository via its compatible GitHub plugin workflow | Record detected format; five Skills, one MCP, browser authorization, read, refresh and revocation. If unavailable, record custom Remote HTTPS MCP separately. |
+| Hermes | Full repository as a Portable Agent Plugins v1 package | Install and enable; five namespaced Skills, one HTTP MCP; vendor `untrusted` applied; native override conflict; OAuth read, refresh and revoke. |
+| OpenClaw | Full repository as a compatible bundle | Record detected format, enabled Skills/MCP and absence of duplicate connections; OAuth read, refresh and revoke. |
 | Codex CLI | Public `portfobit/portfobit-plugin` marketplace | Marketplace and plugin resolve from a clean profile; five skills and one remote MCP server load. Browser OAuth grants only chosen read scopes; `get_portfolio_summary(global)` returns. Token refresh works. Web grant revocation makes a later call fail. |
 | ChatGPT Desktop, Codex mode | Same Codex marketplace, by prompt | Repeat install, OAuth, global read, refresh, and revocation. Record whether an install from Codex CLI is already visible. |
 | ChatGPT Desktop, Chat mode | Same Codex marketplace, by prompt | Repeat install, OAuth, global read, refresh, and revocation. Record whether an install from another Codex surface is already visible. |

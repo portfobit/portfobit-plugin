@@ -2,12 +2,12 @@
 
 Use this guide for ChatGPT Desktop (Chat or Codex mode) and Codex CLI. Install once: the plugin and its connector then appear in both ChatGPT Desktop modes and in Codex CLI.
 
-## Install with a prompt
+## Recommended: Install the Portfobit plugin
 
 Paste this into ChatGPT Desktop, in Chat or Codex mode, or into Codex CLI:
 
 ```text
-Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Codex plugin marketplace, then guide me through Portfobit browser OAuth.
+Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Codex plugin marketplace, then guide me through Portfobit browser OAuth. Then help me connect my first exchange account using https://docs.portfobit.com/guides/connect-your-first-account.
 ```
 
 The expected plugin identity is `portfobit@portfobit`, with five skills and one Portfobit Streamable HTTP MCP connection.

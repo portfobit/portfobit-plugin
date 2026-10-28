@@ -14,7 +14,7 @@ Code mode runs Claude Code, so it uses the same prompt as [Claude Code](claude-c
 1. Start a session in Code mode and paste:
 
 ```text
-Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Claude Code plugin marketplace, then guide me through Portfobit browser OAuth.
+Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Claude Code plugin marketplace, then guide me through Portfobit browser OAuth. Then help me connect my first exchange account using https://docs.portfobit.com/guides/connect-your-first-account.
 ```
 
 2. When Claude asks you to authorize, enter `/mcp`, select `portfobit`, and sign in to Portfobit in the browser. Choose only the scopes needed for the task.

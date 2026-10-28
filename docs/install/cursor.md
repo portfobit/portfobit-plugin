@@ -2,12 +2,12 @@
 
 Use this guide for the Cursor editor and the Cursor CLI (`agent`). Cursor finds the plugin through this repository's `.cursor-plugin/marketplace.json`.
 
-## Install
+## Recommended: Install the Portfobit plugin
 
 Paste this into the Cursor Agent chat:
 
 ```text
-Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Cursor plugin marketplace, then guide me through Portfobit browser OAuth.
+Install the Portfobit plugin from https://github.com/portfobit/portfobit-plugin using the Cursor plugin marketplace, then guide me through Portfobit browser OAuth. Then help me connect my first exchange account using https://docs.portfobit.com/guides/connect-your-first-account.
 ```
 
 Or install from GitHub: open **Customize** in the Cursor sidebar, choose **From GitHub Repository**, enter `https://github.com/portfobit/portfobit-plugin`, then install Portfobit.

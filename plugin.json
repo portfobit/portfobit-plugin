@@ -10,7 +10,13 @@
   "homepage": "https://portfobit.com",
   "repository": "https://github.com/portfobit/portfobit-plugin",
   "license": "MIT",
-  "keywords": ["crypto", "portfolio", "mcp", "codex", "claude-code"],
+  "keywords": [
+    "crypto",
+    "portfolio",
+    "mcp",
+    "codex",
+    "claude-code"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
@@ -19,8 +25,17 @@
         "longDescription": "Explore current crypto assets, portfolio valuation and risk, live open orders, CEX order/trade/ledger/funding history, daily NAV snapshots, and connected-exchange quotes or candles. Diagnose account sync, guide explicit history imports and protected CEX actions, and report product issues through Portfobit MCP. Server scopes, plan rules, and user confirmation govern all writes.",
         "developerName": "Portfobit",
         "category": "Productivity",
-        "capabilities": ["Interactive"],
+        "capabilities": [
+          "Interactive"
+        ],
         "defaultPrompt": "Show my current global portfolio value, source freshness, and server-reported risk."
+      }
+    },
+    "com.nousresearch.hermes": {
+      "servers": {
+        "portfobit": {
+          "trust": "untrusted"
+        }
       }
     }
   }
