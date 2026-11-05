@@ -1,9 +1,10 @@
 {
-  "source": "portfobit-server internal/mcp/server/manifest.go at b3682ab; one-time snapshot",
+  "source": "Portfobit MCP endpoint-to-tool manifest; one-time market-directory contract snapshot",
   "tools": [
     "get_current_user_context",
     "list_service_egress_ips",
     "list_account_connectors",
+    "list_markets",
     "get_market_quote",
     "list_market_candles",
     "list_accounts",
