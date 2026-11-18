@@ -1,5 +1,5 @@
 {
-  "source": "Portfobit MCP endpoint-to-tool manifest; one-time market-directory contract snapshot",
+  "source": "Portfobit MCP endpoint-to-tool manifest",
   "tools": [
     "get_current_user_context",
     "list_service_egress_ips",
@@ -7,6 +7,8 @@
     "list_markets",
     "get_market_quote",
     "list_market_candles",
+    "get_market_funding_rate",
+    "list_market_funding_rate_history",
     "list_accounts",
     "create_account_connection",
     "get_account",

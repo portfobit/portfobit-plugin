@@ -17,7 +17,7 @@ This is a release gate, not a claim of support. Run on a reachable staging or pr
 | Cursor editor | Same public repository, by prompt in the Agent chat and from Customize → From GitHub Repository | Each install source finds Portfobit through `.cursor-plugin/marketplace.json` and installs from a clean profile; the same five skills and remote MCP server load. OAuth from the editor's MCP settings registers only the loopback callback; global read, refresh, and revocation. |
 | Cursor CLI (`agent`) | Plugin installed from the editor | `/mcp` lists `plugin-portfobit-portfobit`; OAuth from `/mcp`, global read, refresh, and revocation. Record that `agent mcp login` does not list plugin servers. |
 
-Verify direct discovery of `list_account_valuation_history`, `list_portfolio_valuation_history`, `list_markets`, `get_market_quote`, `list_market_candles`, `list_open_orders`, `list_account_connectors`, `list_service_egress_ips`, and `get_current_user_context` without invoking an unrelated skill. An unauthorized write must fail on the server. Duplicate manual MCP and plugin connections should be called out to the tester.
+Verify direct discovery of `list_account_valuation_history`, `list_portfolio_valuation_history`, `list_markets`, `get_market_quote`, `list_market_candles`, `get_market_funding_rate`, `list_market_funding_rate_history`, `list_open_orders`, `list_account_connectors`, `list_service_egress_ips`, and `get_current_user_context` without invoking an unrelated skill. An unauthorized write must fail on the server. Duplicate manual MCP and plugin connections should be called out to the tester.
 
 ## Routing and data semantics
 
@@ -29,6 +29,7 @@ For each host, capture selected skill, MCP tool calls, and answer for both an En
 | Account or portfolio daily NAV for a past date | Direct valuation-history tool; no spot P&L or return claim. |
 | Trading pairs or perpetual markets on a named connected exchange | Direct `list_markets` with the requested venue and filters; no unrelated skill, sync or protected action. Preserve pagination, decimal strings and nulls. Listed markets do not prove account trading eligibility. |
 | BTC/USDT quote or 1h candles on a connected venue | Direct market tool; no protected action. |
+| Current or historical funding rates for BTC/USDT:USDT | Call the corresponding market tool and preserve the returned source, decimal rates, and settlement times. |
 | Current open orders | Direct open-order tool, not terminal history or cancel flow. |
 | Why this account or portfolio source has not updated | `account-diagnostics`; inspect known sync state and filters; no automatic sync. |
 | How often does activity history collect | `cex-activity-history`; Plus eligibility, 12h trigger defaults, rolling 7d limit. |

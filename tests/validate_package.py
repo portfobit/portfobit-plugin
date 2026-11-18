@@ -60,7 +60,7 @@ def main() -> None:
     skill_dirs = {path.name for path in (ROOT / "skills").iterdir() if path.is_dir()}
     check(skill_dirs == SKILLS, f"unexpected skill set: {skill_dirs ^ SKILLS}")
     tool_names = set(contract["tools"])
-    check(len(tool_names) == len(contract["tools"]) == 43, "contract snapshot needs 43 unique tools")
+    check(len(tool_names) == len(contract["tools"]) == 45, "contract snapshot needs 45 unique tools")
     check(len(routing_cases) >= 10 and len({case["id"] for case in routing_cases}) == len(routing_cases), "routing cases need unique IDs")
     check(all(case["expected_skill"] in SKILLS | {None} for case in routing_cases), "routing case references unknown skill")
     for directory in sorted(SKILLS):

@@ -3,6 +3,7 @@
 Read `README.md` before changing this repository. Keep the published plugin package self-contained: its code, tests, build, and release process must not read sibling repositories through local paths.
 
 Write this public repository's README, skills, installation guides, examples, release notes, and contributor documentation in English.
+Describe public behavior using Portfobit API terminology. Keep underlying exchange-library and dependency names out of public content.
 
 - Use Portfobit's published MCP and API contracts for tool names, scopes, response fields, and errors. Verify the live connection before claiming that an agent is supported.
 - Interactive users connect through Remote MCP OAuth. Never include real API keys, OAuth tokens, exchange credentials, one-time codes, or account data in source, examples, logs, or release archives.
